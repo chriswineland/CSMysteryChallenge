@@ -31,6 +31,9 @@
     [contentTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     [contentTableView setDelegate:self];
     [contentTableView setDataSource:self];
+    [contentTableView registerNib:[UINib nibWithNibName:@"TumblrPostCell"
+                                               bundle:[NSBundle mainBundle]]
+         forCellReuseIdentifier:@"TblerCellType"];
     [[self view]addSubview:contentTableView];
 }
 

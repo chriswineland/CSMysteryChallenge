@@ -10,7 +10,9 @@
 
 @interface TumblrPostCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *cellItemLabel;
+@property (nonatomic, strong) IBOutlet UILabel *cellItemMessageLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *cellItemImageView;
+
+- (void)clearDisplayData;
 
 @end

@@ -28,7 +28,7 @@
     [contentTableView setBackgroundColor:[UIColor clearColor]];
     [contentTableView setBackgroundView:nil];
     [contentTableView setBounces:YES];
-    [contentTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    [contentTableView setRowHeight:88.0f];
     [contentTableView setDelegate:self];
     [contentTableView setDataSource:self];
     [contentTableView registerNib:[UINib nibWithNibName:@"TumblrPostCell"
@@ -61,11 +61,13 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     static NSString *MyIdentifier = @"TblerCellType";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:MyIdentifier];
-    }
+    TumblrPostCell* cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    [[cell cellItemMessageLabel]setText:@"Test"];
+    
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
     
     return cell;
 }

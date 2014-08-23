@@ -14,7 +14,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        // Initializasion code
+        
     }
     return self;
 }
@@ -24,6 +25,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - helper functions
+
+- (void)clearDisplayData{
+    [[self cellItemMessageLabel]setText:@""];
+    [[self cellItemImageView]setImage:[UIImage imageNamed:@""]];
 }
 
 @end

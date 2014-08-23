@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TumblrPostCell.h"
 
 @interface CSViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>{
+    
     CGFloat screenWidth;
     CGFloat screenHeight;
     UITableView* contentTableView;

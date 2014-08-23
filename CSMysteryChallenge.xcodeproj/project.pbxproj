@@ -45,11 +45,11 @@
 		A838F35E187F070A002498E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A838F360187F070A002498E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A838F362187F070A002498E5 /* CSMysteryChallenge-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSMysteryChallenge-Prefix.pch"; sourceTree = "<group>"; };
-		A838F363187F070A002498E5 /* CSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSAppDelegate.h; sourceTree = "<group>"; };
-		A838F364187F070A002498E5 /* CSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSAppDelegate.m; sourceTree = "<group>"; };
+		A838F363187F070A002498E5 /* CSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSAppDelegate.h; path = Base/CSAppDelegate.h; sourceTree = "<group>"; };
+		A838F364187F070A002498E5 /* CSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CSAppDelegate.m; path = Base/CSAppDelegate.m; sourceTree = "<group>"; };
 		A838F367187F070A002498E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A838F369187F070A002498E5 /* CSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSViewController.h; sourceTree = "<group>"; };
-		A838F36A187F070A002498E5 /* CSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSViewController.m; sourceTree = "<group>"; };
+		A838F369187F070A002498E5 /* CSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSViewController.h; path = ViewControllers/CSViewController.h; sourceTree = "<group>"; };
+		A838F36A187F070A002498E5 /* CSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CSViewController.m; path = ViewControllers/CSViewController.m; sourceTree = "<group>"; };
 		A838F36C187F070A002498E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A838F372187F070A002498E5 /* CSMysteryChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSMysteryChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A838F373187F070A002498E5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,6 +83,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16A6910A19A925BE0063F51E /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		16A6910B19A925C80063F51E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A838F363187F070A002498E5 /* CSAppDelegate.h */,
+				A838F364187F070A002498E5 /* CSAppDelegate.m */,
+				A838F366187F070A002498E5 /* Main.storyboard */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		16A6910C19A925D40063F51E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A838F369187F070A002498E5 /* CSViewController.h */,
+				A838F36A187F070A002498E5 /* CSViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		A838F348187F070A002498E5 = {
 			isa = PBXGroup;
 			children = (
@@ -118,11 +144,9 @@
 		A838F35A187F070A002498E5 /* CSMysteryChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				A838F363187F070A002498E5 /* CSAppDelegate.h */,
-				A838F364187F070A002498E5 /* CSAppDelegate.m */,
-				A838F366187F070A002498E5 /* Main.storyboard */,
-				A838F369187F070A002498E5 /* CSViewController.h */,
-				A838F36A187F070A002498E5 /* CSViewController.m */,
+				16A6910A19A925BE0063F51E /* Domain */,
+				16A6910C19A925D40063F51E /* ViewControllers */,
+				16A6910B19A925C80063F51E /* Base */,
 				A838F36C187F070A002498E5 /* Images.xcassets */,
 				A838F35B187F070A002498E5 /* Supporting Files */,
 			);

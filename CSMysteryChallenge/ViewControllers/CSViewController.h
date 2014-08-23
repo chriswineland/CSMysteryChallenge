@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSViewController : UIViewController{
-    
+@interface CSViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>{
+    CGFloat screenWidth;
+    CGFloat screenHeight;
+    UITableView* contentTableView;
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @implementation TumblrPost
 
+@synthesize caption, imageURL, formattedHashTags, date;
+
 @end

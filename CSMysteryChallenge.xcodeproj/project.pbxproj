@@ -11,6 +11,7 @@
 		161B784C19A92D29008835D5 /* TumblrPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 161B784B19A92D29008835D5 /* TumblrPostCell.xib */; };
 		161B784F19A9463F008835D5 /* TumblrPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B784E19A9463F008835D5 /* TumblrPost.m */; };
 		161B785219A9471B008835D5 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B785119A9471B008835D5 /* ImageStore.m */; };
+		161B785519A97849008835D5 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B785419A97849008835D5 /* AppContext.m */; };
 		A838F355187F070A002498E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F354187F070A002498E5 /* Foundation.framework */; };
 		A838F357187F070A002498E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F356187F070A002498E5 /* CoreGraphics.framework */; };
 		A838F359187F070A002498E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F358187F070A002498E5 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 		161B784E19A9463F008835D5 /* TumblrPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TumblrPost.m; path = Domain/TumblrPost.m; sourceTree = "<group>"; };
 		161B785019A9471B008835D5 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageStore.h; path = Domain/ImageStore.h; sourceTree = "<group>"; };
 		161B785119A9471B008835D5 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageStore.m; path = Domain/ImageStore.m; sourceTree = "<group>"; };
+		161B785319A97849008835D5 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppContext.h; path = Domain/AppContext.h; sourceTree = "<group>"; };
+		161B785419A97849008835D5 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppContext.m; path = Domain/AppContext.m; sourceTree = "<group>"; };
 		65A2EBEF67DE4A779F5BC24D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8C44B7ACD14D17B171EF43 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A838F351187F070A002498E5 /* CSMysteryChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSMysteryChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +114,8 @@
 				161B784E19A9463F008835D5 /* TumblrPost.m */,
 				161B785019A9471B008835D5 /* ImageStore.h */,
 				161B785119A9471B008835D5 /* ImageStore.m */,
+				161B785319A97849008835D5 /* AppContext.h */,
+				161B785419A97849008835D5 /* AppContext.m */,
 			);
 			name = Domain;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161B785519A97849008835D5 /* AppContext.m in Sources */,
 				A838F365187F070A002498E5 /* CSAppDelegate.m in Sources */,
 				161B784F19A9463F008835D5 /* TumblrPost.m in Sources */,
 				A838F361187F070A002498E5 /* main.m in Sources */,

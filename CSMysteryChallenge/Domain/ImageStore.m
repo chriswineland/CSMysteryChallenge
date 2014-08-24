@@ -17,13 +17,5 @@
     return self;
 }
 
-+ (id)singleton{
-    static ImageStore *singleton = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        singleton = [[self alloc] init];
-    });
-    return singleton;
-}
 
 @end

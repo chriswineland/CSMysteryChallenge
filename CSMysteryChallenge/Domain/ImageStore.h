@@ -12,6 +12,4 @@
     
 }
 
-+ (id)singleton;
-
 @end

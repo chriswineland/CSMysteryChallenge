@@ -9,7 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface TumblrPost : NSObject{
-    
+    NSString* caption;
+    NSString* imageURL;
+    NSString* formattedHashTags;
+    NSString* date;
 }
+
+@property (nonatomic, strong)NSString* caption;
+@property (nonatomic, strong)NSString* imageURL;
+@property (nonatomic, strong)NSString* formattedHashTags;
+@property (nonatomic, strong)NSString* date;
 
 @end

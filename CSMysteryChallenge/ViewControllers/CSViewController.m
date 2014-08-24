@@ -7,7 +7,7 @@
 //
 
 #import "CSViewController.h"
-#import "TMAPIClient.h"
+#import "AppContext.h"
 
 
 @interface CSViewController ()
@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleLoading:) name:loadingIndicator object:[AppContext singleton]];
+    [[AppContext singleton]fetchAppData];
     [self setScreenDementions];
     
     contentTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight) style:UITableViewStyleGrouped];
@@ -35,14 +37,6 @@
                                                bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:@"TblerCellType"];
     [[self view]addSubview:contentTableView];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-    
-	[[TMAPIClient sharedInstance] posts:@"couchsurfing" type:nil parameters:nil callback: ^(id result, NSError *error) {
-	    NSLog(@"Result returned from Tumblr API is: %@", result);
-	}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,6 +78,22 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     screenHeight = screenRect.size.height;
     screenWidth = screenRect.size.width;
+}
+
+- (void)toggleLoading:(NSNotification*)notification{
+    if([(NSNumber*)[[notification userInfo]objectForKey:loadingIndicator] boolValue]){
+        [self showLoading];
+    } else {
+        [self hideLoading];
+    }
+}
+
+- (void)showLoading{
+    
+}
+
+- (void)hideLoading{
+    
 }
 
 @end

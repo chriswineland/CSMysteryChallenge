@@ -11,15 +11,13 @@
 
 @implementation AppContext
 
-@synthesize fullDataSet, fullFilteredDataSet, imageStore;
+@synthesize fullDataSet, imageStore;
 
 - (id)init{
     if(self = [super init]){
         imageStore = [[ImageStore alloc]init];
         [imageStore setDelegate:self];
-        unfilteredScrollViewVisibleRect = CGRectZero;
         fullDataSet = [[NSMutableArray alloc]initWithCapacity:0];
-        fullFilteredDataSet = [[NSMutableArray alloc]initWithCapacity:0];
     }
     return self;
 }
@@ -50,18 +48,14 @@
 
 #pragma mark - helper functions
 
-- (void)clearAllDataSets{
+- (void)clearDataSet{
     [fullDataSet removeAllObjects];
-    [self clearFilteredDataSets];
 }
 
-- (void)clearFilteredDataSets{
-    [fullFilteredDataSet removeAllObjects];
-}
 
 - (void)fetchAppData{
     if([fullDataSet count] > 0){
-        [self clearAllDataSets];
+        [self clearDataSet];
     }
     [[TMAPIClient sharedInstance] posts:@"couchsurfing" type:nil parameters:nil callback: ^(id result, NSError *error) {
 	    if(error){

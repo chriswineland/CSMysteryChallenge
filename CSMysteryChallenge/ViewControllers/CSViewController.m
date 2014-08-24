@@ -31,7 +31,7 @@
     [contentTableView setBackgroundColor:[UIColor clearColor]];
     [contentTableView setBackgroundView:nil];
     [contentTableView setBounces:YES];
-    [contentTableView setRowHeight:150.0f];
+    [contentTableView setRowHeight:175.0f];
     [contentTableView setDelegate:self];
     [contentTableView setDataSource:self];
     [contentTableView registerNib:[UINib nibWithNibName:@"TumblrPostCell"

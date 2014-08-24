@@ -13,6 +13,7 @@
 		161B785219A9471B008835D5 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B785119A9471B008835D5 /* ImageStore.m */; };
 		161B785519A97849008835D5 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B785419A97849008835D5 /* AppContext.m */; };
 		161B785819A9DB74008835D5 /* add_image_filled-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 161B785719A9DB74008835D5 /* add_image_filled-128.png */; };
+		161B786019AA6EDB008835D5 /* AppContextTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B785F19AA6EDB008835D5 /* AppContextTestClass.m */; };
 		A838F355187F070A002498E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F354187F070A002498E5 /* Foundation.framework */; };
 		A838F357187F070A002498E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F356187F070A002498E5 /* CoreGraphics.framework */; };
 		A838F359187F070A002498E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F358187F070A002498E5 /* UIKit.framework */; };
@@ -26,7 +27,6 @@
 		A838F375187F070A002498E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F354187F070A002498E5 /* Foundation.framework */; };
 		A838F376187F070A002498E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F358187F070A002498E5 /* UIKit.framework */; };
 		A838F37E187F070A002498E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A838F37C187F070A002498E5 /* InfoPlist.strings */; };
-		A838F380187F070A002498E5 /* CSMysteryChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A838F37F187F070A002498E5 /* CSMysteryChallengeTests.m */; };
 		EC158790212C40158214B366 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A2EBEF67DE4A779F5BC24D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +51,7 @@
 		161B785319A97849008835D5 /* AppContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppContext.h; path = Domain/AppContext.h; sourceTree = "<group>"; };
 		161B785419A97849008835D5 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppContext.m; path = Domain/AppContext.m; sourceTree = "<group>"; };
 		161B785719A9DB74008835D5 /* add_image_filled-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_image_filled-128.png"; sourceTree = "<group>"; };
+		161B785F19AA6EDB008835D5 /* AppContextTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContextTestClass.m; sourceTree = "<group>"; };
 		65A2EBEF67DE4A779F5BC24D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8C44B7ACD14D17B171EF43 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A838F351187F070A002498E5 /* CSMysteryChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSMysteryChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +72,6 @@
 		A838F373187F070A002498E5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A838F37B187F070A002498E5 /* CSMysteryChallengeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSMysteryChallengeTests-Info.plist"; sourceTree = "<group>"; };
 		A838F37D187F070A002498E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A838F37F187F070A002498E5 /* CSMysteryChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSMysteryChallengeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +209,8 @@
 		A838F379187F070A002498E5 /* CSMysteryChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				A838F37F187F070A002498E5 /* CSMysteryChallengeTests.m */,
 				A838F37A187F070A002498E5 /* Supporting Files */,
+				161B785F19AA6EDB008835D5 /* AppContextTestClass.m */,
 			);
 			path = CSMysteryChallengeTests;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A838F380187F070A002498E5 /* CSMysteryChallengeTests.m in Sources */,
+				161B786019AA6EDB008835D5 /* AppContextTestClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

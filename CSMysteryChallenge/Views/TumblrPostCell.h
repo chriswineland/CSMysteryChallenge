@@ -19,8 +19,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *cellItemHashTagLabel;
 @property (nonatomic, strong) IBOutlet UILabel *cellItemDateLabel;
 
-- (void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath*)indexPath;
+-(void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath*)indexPath;
 -(void)laodNextImageForPostAtIndexPath:(NSIndexPath*)indexPath;
-- (void)setCellItemImage:(UIImage*)image;
+-(void)setCellItemImage:(UIImage*)image;
 
 @end

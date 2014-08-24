@@ -21,17 +21,14 @@ static NSString* indexPathKey = @"indexPathKey";
 
 @interface AppContext : NSObject<ImageStoreDelegate>{
     ImageStore* imageStore;
-    CGRect unfilteredScrollViewVisibleRect;
     NSMutableArray* fullDataSet;
-    NSMutableArray* fullFilteredDataSet;
 }
 
 @property (nonatomic, strong)NSMutableArray* fullDataSet;
-@property (nonatomic, strong)NSMutableArray* fullFilteredDataSet;
 @property (nonatomic, strong)ImageStore* imageStore;
 
 + (id)singleton;
-- (void)clearFilteredDataSets;
+- (void)clearDataSet;
 - (void)fetchAppData;
 
 @end

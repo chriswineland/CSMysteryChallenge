@@ -98,5 +98,4 @@
     [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[displayedTumblrPost imageURLs] objectAtIndex:curDisplayedImageIndex] atIndexPath:indexPath]];
 }
 
-
 @end

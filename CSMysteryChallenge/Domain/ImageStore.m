@@ -32,11 +32,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 //tell the cell to try again, we now have it
                 [cachedImages setObject:image forKey:urlString];
-                /*
-                UITableViewCell *blockCell = [tableView cellForRowAtIndexPath:indexPath];
-                blockCell.imageView.image = image;
-                [blockCell setNeedsLayout];
-                 */
+                [delegate imageWasFetched:image forIndexPath:indexPath];
             });
         });
         return [UIImage imageNamed:@"add_image_filled-128.png"];

@@ -10,11 +10,16 @@
 #import "ImageStore.h"
 #import "TumblrPost.h"
 
-//pointer to constant nsstring
+//notification stings
 static NSString* loadingIndicator = @"loadingNotificationName";
-static NSString* fetchCompletedSuccesfuly = @"FetchCompletedSuccesfulyName";
+static NSString* fetchCompletedSuccesfuly = @"fetchCompletedSuccesfulyName";
+static NSString* asyncImageReturned = @"asyncImageReturnedName";
 
-@interface AppContext : NSObject{
+//notification info keys
+static NSString* imageKey = @"imageKey";
+static NSString* indexPathKey = @"indexPathKey";
+
+@interface AppContext : NSObject<ImageStoreDelegate>{
     ImageStore* imageStore;
     CGRect unfilteredScrollViewVisibleRect;
     NSMutableArray* fullDataSet;

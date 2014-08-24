@@ -91,6 +91,7 @@
 - (void)setUpApContextListeners{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleLoading:) name:loadingIndicator object:[AppContext singleton]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchCompleted) name:fetchCompletedSuccesfuly object:[AppContext singleton]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(asyncImageFetchComplete:) name:asyncImageReturned object:[AppContext singleton]];
 }
 
 - (void)toggleLoading:(NSNotification*)notification{
@@ -103,6 +104,10 @@
 
 - (void)fetchCompleted{
     [contentTableView reloadData];
+}
+
+- (void)asyncImageFetchComplete:(NSNotification*)notification{
+    [(TumblrPostCell*)[contentTableView cellForRowAtIndexPath:[[notification userInfo] objectForKey:indexPathKey]] setCellItemImage:[[notification userInfo] objectForKey:imageKey]];
 }
 
 @end

@@ -17,6 +17,7 @@
     if(self = [super init]){
         isLoading = NO;
         imageStore = [[ImageStore alloc]init];
+        [imageStore setDelegate:self];
         unfilteredScrollViewVisibleRect = CGRectZero;
         fullDataSet = [[NSMutableArray alloc]initWithCapacity:0];
         fullFilteredDataSet = [[NSMutableArray alloc]initWithCapacity:0];
@@ -141,6 +142,12 @@
     }
 
     return bestFitImage;
+}
+
+#pragma mark - ImageStoreDelegate methods
+
+- (void)imageWasFetched:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath{
+    [[NSNotificationCenter defaultCenter] postNotificationName:asyncImageReturned object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image, imageKey, indexPath, indexPathKey, nil]];
 }
 
 #pragma mark - Overridden Getters and Setters

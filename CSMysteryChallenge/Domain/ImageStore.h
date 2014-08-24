@@ -23,6 +23,6 @@
 
 @protocol ImageStoreDelegate <NSObject>
 
--(void)ImageWasFetched:(UIImage*)image forIndexPath:(NSIndexPath*)indexPath;
+-(void)imageWasFetched:(UIImage*)image forIndexPath:(NSIndexPath*)indexPath;
 
 @end

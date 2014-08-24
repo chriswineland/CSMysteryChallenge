@@ -30,6 +30,10 @@
 
 #pragma mark - helper functions
 
+- (void)setCellItemImage:(UIImage *)image{
+    [[self cellItemImageView]setImage:image];
+}
+
 - (void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath *)indexPath{
     displayedTumblrPost = post;
     [self setCaptionText:[post caption]];

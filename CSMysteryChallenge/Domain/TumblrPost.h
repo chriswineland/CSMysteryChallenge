@@ -10,13 +10,13 @@
 
 @interface TumblrPost : NSObject{
     NSString* caption;
-    NSString* imageURL;
+    NSArray* imageURLs;
     NSString* formattedHashTags;
     NSString* date;
 }
 
 @property (nonatomic, strong)NSString* caption;
-@property (nonatomic, strong)NSString* imageURL;
+@property (nonatomic, strong)NSArray* imageURLs;
 @property (nonatomic, strong)NSString* formattedHashTags;
 @property (nonatomic, strong)NSString* date;
 

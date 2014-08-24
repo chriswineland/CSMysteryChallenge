@@ -17,9 +17,7 @@
         imageStore = [[ImageStore alloc]init];
         unfilteredScrollViewVisibleRect = CGRectZero;
         fullDataSet = [[NSMutableArray alloc]initWithCapacity:0];
-        unfilteredViewableDataSet = [[NSMutableArray alloc]initWithCapacity:0];
         fullFilteredDataSet = [[NSMutableArray alloc]initWithCapacity:0];
-        filteredViewableDataSet = [[NSMutableArray alloc]initWithCapacity:0];
     }
     return self;
 }
@@ -51,13 +49,11 @@
 
 - (void)clearAllDataSets{
     [fullDataSet removeAllObjects];
-    [unfilteredViewableDataSet removeAllObjects];
     [self clearFilteredDataSets];
 }
 
 - (void)clearFilteredDataSets{
     [fullFilteredDataSet removeAllObjects];
-    [filteredViewableDataSet removeAllObjects];
 }
 
 - (void)fetchAppData{
@@ -82,7 +78,7 @@
     
     [newPost setCaption:[self parseCaption:dict]];
     [newPost setDate:[self parseDate:dict]];
-    [newPost setImageURL:[self parseImageURL:dict]];
+    [newPost setImageURLs:[self parseImageURLs:dict]];
     [newPost setFormattedHashTags:[self parseHashTags:dict]];
     
     return newPost;
@@ -104,11 +100,44 @@
 }
 
 - (NSString*)parseHashTags:(NSDictionary*)dict{
-    return Nil;
+    NSString* formattedHashTags = @"";
+    for(NSString* tag in [dict objectForKey:@"tags"]){
+        formattedHashTags = [formattedHashTags stringByAppendingString:@"#"];
+        formattedHashTags = [formattedHashTags stringByAppendingString:tag];
+        formattedHashTags = [formattedHashTags stringByAppendingString:@" "];
+    }
+    //remove the last @" "
+    formattedHashTags = [formattedHashTags substringToIndex:[formattedHashTags length]-1];
+    return formattedHashTags;
 }
 
-- (NSString*)parseImageURL:(NSDictionary*)dict{
-    return Nil;
+- (NSArray*)parseImageURLs:(NSDictionary*)dict{
+    NSMutableArray* imageURLs = [[NSMutableArray alloc]initWithCapacity:0];
+    NSArray* allPhotos = [[NSArray alloc]initWithArray:[dict objectForKey:@"photos"]];
+    for(NSDictionary* imageOptions in allPhotos){
+        [imageURLs addObject:[self getBestFitImageFromOptions:[imageOptions objectForKey:@"alt_sizes"]]];
+    }
+    return imageURLs;
+}
+
+- (NSString*)getBestFitImageFromOptions:(NSArray*)options{
+    NSString* bestFitImage = @"";
+    if([options count] == 0){
+        //bail out, no actual options to choose from
+        return bestFitImage;
+    }
+    //70x105 is the display size
+    int height = 70;
+    int width = 105;
+    for(NSDictionary* image in options){
+        //this takes advantage and assumes that the images are passed to me largest to smallest, 
+        //if this assumption is incorrec this will need to be refactored
+        if([[image objectForKey:@"height"]integerValue] > height && [[image objectForKey:@"width"] integerValue] > width){
+            bestFitImage = [image objectForKey:@"url"];
+        }
+    }
+
+    return bestFitImage;
 }
 
 #pragma mark - Overridden Getters and Setters

@@ -12,7 +12,7 @@
 
 - (id)init{
     if(self = [super init]){
-        
+        //NSData *data = [NSData dataWithContentsOfURL:url];
     }
     return self;
 }

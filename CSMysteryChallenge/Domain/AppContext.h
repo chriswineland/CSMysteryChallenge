@@ -17,9 +17,7 @@ static NSString* loadingIndicator = @"loadingNotificationName";
     ImageStore* imageStore;
     CGRect unfilteredScrollViewVisibleRect;
     NSMutableArray* fullDataSet;
-    NSMutableArray* unfilteredViewableDataSet;
     NSMutableArray* fullFilteredDataSet;
-    NSMutableArray* filteredViewableDataSet;
     BOOL isLoading;
 }
 

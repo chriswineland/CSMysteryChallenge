@@ -22,9 +22,10 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
+    [self setScreenDementions];
     [self setUpApContextListeners];
     [[AppContext singleton]fetchAppData];
-    [self setScreenDementions];
+    
     
     contentTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight) style:UITableViewStyleGrouped];
     [contentTableView setBackgroundColor:[UIColor clearColor]];
@@ -67,6 +68,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 #pragma mark - Helper Methods
@@ -78,29 +80,15 @@
 }
 
 
-- (void)showLoading{
-    
-}
-
-- (void)hideLoading{
-    
-}
 
 #pragma mark - AppContext Event Listeners
 
 - (void)setUpApContextListeners{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleLoading:) name:loadingIndicator object:[AppContext singleton]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchCompleted) name:fetchCompletedSuccesfuly object:[AppContext singleton]];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(asyncImageFetchComplete:) name:asyncImageReturned object:[AppContext singleton]];
 }
 
-- (void)toggleLoading:(NSNotification*)notification{
-    if([(NSNumber*)[[notification userInfo]objectForKey:loadingIndicator] boolValue]){
-        [self showLoading];
-    } else {
-        [self hideLoading];
-    }
-}
+
 
 - (void)fetchCompleted{
     [contentTableView reloadData];

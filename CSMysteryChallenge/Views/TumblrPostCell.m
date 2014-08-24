@@ -17,6 +17,7 @@
     if (self) {
         // Initializasion code
         displayedTumblrPost = [[TumblrPost alloc]init];
+        curDisplayedImageIndex = 0;
     }
     return self;
 }
@@ -39,7 +40,7 @@
     [self setCaptionText:[post caption]];
     [[self cellItemHashTagLabel] setText:[self truncatedHashtagsFromFormattedHashtags:[post formattedHashTags]]];
     [[self cellItemDateLabel] setText:[post date]];
-    [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[post imageURLs] objectAtIndex:0] atIndexPath:indexPath]];
+    [self setImageToDisplayImageIndexForIndexPath:indexPath];
 }
 
 - (void)setCaptionText:(NSString*)htmlString{
@@ -79,5 +80,23 @@
         return returnString;
     }
 }
+
+-(void)laodNextImageForPostAtIndexPath:(NSIndexPath*)indexPath{
+    [self moveCounterToNextImage];
+    [self setImageToDisplayImageIndexForIndexPath:indexPath];
+}
+
+- (void)moveCounterToNextImage{
+    if(curDisplayedImageIndex >= [[displayedTumblrPost imageURLs]count]-1){
+        curDisplayedImageIndex = 0;
+    } else {
+        curDisplayedImageIndex++;
+    }
+}
+
+- (void)setImageToDisplayImageIndexForIndexPath:(NSIndexPath*)indexPath{
+    [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[displayedTumblrPost imageURLs] objectAtIndex:curDisplayedImageIndex] atIndexPath:indexPath]];
+}
+
 
 @end

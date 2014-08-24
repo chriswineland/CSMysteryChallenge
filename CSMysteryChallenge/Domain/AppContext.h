@@ -24,7 +24,6 @@ static NSString* indexPathKey = @"indexPathKey";
     CGRect unfilteredScrollViewVisibleRect;
     NSMutableArray* fullDataSet;
     NSMutableArray* fullFilteredDataSet;
-    BOOL isLoading;
 }
 
 @property (nonatomic, strong)NSMutableArray* fullDataSet;

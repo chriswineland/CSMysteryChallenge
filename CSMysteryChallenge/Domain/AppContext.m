@@ -15,7 +15,6 @@
 
 - (id)init{
     if(self = [super init]){
-        isLoading = NO;
         imageStore = [[ImageStore alloc]init];
         [imageStore setDelegate:self];
         unfilteredScrollViewVisibleRect = CGRectZero;
@@ -64,12 +63,10 @@
     if([fullDataSet count] > 0){
         [self clearAllDataSets];
     }
-    [self setIsLoading:YES];
     [[TMAPIClient sharedInstance] posts:@"couchsurfing" type:nil parameters:nil callback: ^(id result, NSError *error) {
 	    if(error){
             [self fetchDidFailWithError:error];
         } else {
-            [self setIsLoading:NO];
             [self fetchDidSucceedWithResult:result];
         }
 	}];
@@ -148,17 +145,6 @@
 
 - (void)imageWasFetched:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath{
     [[NSNotificationCenter defaultCenter] postNotificationName:asyncImageReturned object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image, imageKey, indexPath, indexPathKey, nil]];
-}
-
-#pragma mark - Overridden Getters and Setters
-
-- (void)setIsLoading:(BOOL)loading{
-    if(isLoading == loading){
-        //no change no action
-        return;
-    }
-    isLoading = loading;
-    [[NSNotificationCenter defaultCenter] postNotificationName:loadingIndicator object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:loading] forKey:loadingIndicator]];
 }
 
 @end

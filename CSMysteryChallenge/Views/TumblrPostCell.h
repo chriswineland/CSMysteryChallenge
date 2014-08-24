@@ -11,6 +11,7 @@
 
 @interface TumblrPostCell : UITableViewCell{
     TumblrPost* displayedTumblrPost;
+    int curDisplayedImageIndex;
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *cellItemMessageLabel;
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *cellItemDateLabel;
 
 - (void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath*)indexPath;
+-(void)laodNextImageForPostAtIndexPath:(NSIndexPath*)indexPath;
 - (void)setCellItemImage:(UIImage*)image;
 
 @end

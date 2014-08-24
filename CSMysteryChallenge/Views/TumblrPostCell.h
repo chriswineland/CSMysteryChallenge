@@ -9,14 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "TumblrPost.h"
 
-@interface TumblrPostCell : UITableViewCell
+@interface TumblrPostCell : UITableViewCell{
+    TumblrPost* displayedTumblrPost;
+}
 
 @property (nonatomic, strong) IBOutlet UILabel *cellItemMessageLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *cellItemImageView;
 @property (nonatomic, strong) IBOutlet UILabel *cellItemHashTagLabel;
 @property (nonatomic, strong) IBOutlet UILabel *cellItemDateLabel;
 
-- (void)clearDisplayData;
-- (void)setCellValuesWithTumblrPost:(TumblrPost*)post;
+- (void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath*)indexPath;
 
 @end

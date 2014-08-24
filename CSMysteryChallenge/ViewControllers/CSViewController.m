@@ -58,7 +58,7 @@
     
     static NSString *MyIdentifier = @"TblerCellType";
     TumblrPostCell* cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    [cell setCellValuesWithTumblrPost:[[[AppContext singleton] fullDataSet] objectAtIndex:indexPath.row]];
+    [cell setCellValuesWithTumblrPost:[[[AppContext singleton] fullDataSet] objectAtIndex:indexPath.row] atIndexPath:indexPath];
 
     return cell;
 }

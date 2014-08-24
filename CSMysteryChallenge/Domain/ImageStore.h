@@ -8,10 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol ImageStoreDelegate;
+
 @interface ImageStore : NSObject{
+    id <ImageStoreDelegate> __weak delegate;
     NSMutableDictionary* cachedImages;
 }
 
+@property (nonatomic, weak)id <ImageStoreDelegate> delegate;
 
+- (UIImage*)getImageFromURLString:(NSString*)urlString atIndexPath:(NSIndexPath*)indexPath;
+
+@end
+
+@protocol ImageStoreDelegate <NSObject>
+
+-(void)ImageWasFetched:(UIImage*)image forIndexPath:(NSIndexPath*)indexPath;
 
 @end

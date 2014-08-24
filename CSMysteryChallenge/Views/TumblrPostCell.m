@@ -7,6 +7,7 @@
 //
 
 #import "TumblrPostCell.h"
+#import "AppContext.h"
 
 @implementation TumblrPostCell
 
@@ -15,7 +16,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initializasion code
-        
+        displayedTumblrPost = [[TumblrPost alloc]init];
     }
     return self;
 }
@@ -29,10 +30,23 @@
 
 #pragma mark - helper functions
 
-- (void)setCellValuesWithTumblrPost:(TumblrPost*)post{
-    [[self cellItemMessageLabel]setText:[post caption]];
+- (void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath *)indexPath{
+    displayedTumblrPost = post;
+    [self setCaptionText:[post caption]];
     [[self cellItemHashTagLabel] setText:[self truncatedHashtagsFromFormattedHashtags:[post formattedHashTags]]];
     [[self cellItemDateLabel] setText:[post date]];
+    [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[post imageURLs] objectAtIndex:0] atIndexPath:indexPath]];
+}
+
+- (void)setCaptionText:(NSString*)htmlString{
+    NSError *err = nil;
+    [[self cellItemMessageLabel] setAttributedText:[[NSAttributedString alloc]initWithData:[htmlString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                   options: @{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType } 
+                                                                        documentAttributes: nil 
+                                                                                     error: &err]];
+    if(err){
+       [[self cellItemMessageLabel] setText:@"Error Reading HTML Formated Text"];
+    }
 }
 
 - (NSString*)truncatedHashtagsFromFormattedHashtags:(NSString*)hashTags{
@@ -60,11 +74,6 @@
         returnString = [returnString substringFromIndex:1];
         return returnString;
     }
-}
-
-- (void)clearDisplayData{
-    [[self cellItemMessageLabel]setText:@""];
-    [[self cellItemImageView]setImage:[UIImage imageNamed:@""]];
 }
 
 @end

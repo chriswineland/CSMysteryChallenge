@@ -68,7 +68,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [(TumblrPostCell*)[tableView cellForRowAtIndexPath:indexPath] laodNextImageForPostAtIndexPath:indexPath];
 }
 
 #pragma mark - Helper Methods

@@ -37,10 +37,10 @@
 
 - (void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath *)indexPath{
     displayedTumblrPost = post;
-    [self setCaptionText:[post caption]];
-    [[self cellItemHashTagLabel] setText:[self truncatedHashtagsFromFormattedHashtags:[post formattedHashTags]]];
-    [[self cellItemDateLabel] setText:[post date]];
-    [self setImageToDisplayImageIndexForIndexPath:indexPath];
+    [self setCaptionText:[displayedTumblrPost caption]];
+    [[self cellItemHashTagLabel] setText:[self truncatedHashtagsFromFormattedHashtags:[displayedTumblrPost formattedHashTags]]];
+    [[self cellItemDateLabel] setText:[displayedTumblrPost date]];
+    [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[displayedTumblrPost imageURLs] objectAtIndex:0] atIndexPath:indexPath]];
 }
 
 - (void)setCaptionText:(NSString*)htmlString{

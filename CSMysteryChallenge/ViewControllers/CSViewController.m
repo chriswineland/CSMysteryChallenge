@@ -9,6 +9,8 @@
 #import "CSViewController.h"
 #import "AppContext.h"
 
+#define REFRESHTAG 1234
+
 
 @interface CSViewController ()
 
@@ -37,6 +39,13 @@
     [contentTableView registerNib:[UINib nibWithNibName:@"TumblrPostCell"
                                                bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:@"TblerCellType"];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl setTag:REFRESHTAG];
+    [refreshControl setTintColor:[UIColor darkGrayColor]];
+    [refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    [contentTableView addSubview:refreshControl];
+    
     [[self view]addSubview:contentTableView];
 }
 
@@ -79,6 +88,12 @@
     screenWidth = screenRect.size.width;
 }
 
+- (void)refreshData{
+    [[AppContext singleton]clearDataSet];
+    [contentTableView reloadData];
+    [[AppContext singleton]fetchAppData];
+}
+
 
 
 #pragma mark - AppContext Event Listeners
@@ -92,6 +107,7 @@
 
 - (void)fetchCompleted{
     [contentTableView reloadData];
+    [refreshControl endRefreshing];
 }
 
 - (void)asyncImageFetchComplete:(NSNotification*)notification{

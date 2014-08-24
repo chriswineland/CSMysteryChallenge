@@ -14,6 +14,7 @@
     CGFloat screenWidth;
     CGFloat screenHeight;
     UITableView* contentTableView;
+    UIRefreshControl *refreshControl;
 }
 
 @end

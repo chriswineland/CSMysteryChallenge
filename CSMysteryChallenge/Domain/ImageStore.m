@@ -12,10 +12,11 @@
 
 - (id)init{
     if(self = [super init]){
-        //NSData *data = [NSData dataWithContentsOfURL:url];
+        cachedImages = [[NSMutableDictionary alloc]init];
     }
     return self;
 }
+
 
 
 @end

@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface ImageStore : NSObject{
-    
+    NSMutableDictionary* cachedImages;
 }
+
+
 
 @end

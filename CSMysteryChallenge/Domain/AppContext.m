@@ -11,6 +11,8 @@
 
 @implementation AppContext
 
+@synthesize fullDataSet, fullFilteredDataSet, imageStore;
+
 - (id)init{
     if(self = [super init]){
         isLoading = NO;
@@ -43,6 +45,7 @@
     for(NSDictionary* dict in posts){
         [fullDataSet addObject:[self parseDictionaryToTumblrPost:dict]];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:fetchCompletedSuccesfuly object:self userInfo:Nil];
 }
 
 #pragma mark - helper functions

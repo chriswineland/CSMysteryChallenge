@@ -12,6 +12,7 @@
 
 //pointer to constant nsstring
 static NSString* loadingIndicator = @"loadingNotificationName";
+static NSString* fetchCompletedSuccesfuly = @"FetchCompletedSuccesfulyName";
 
 @interface AppContext : NSObject{
     ImageStore* imageStore;
@@ -20,6 +21,10 @@ static NSString* loadingIndicator = @"loadingNotificationName";
     NSMutableArray* fullFilteredDataSet;
     BOOL isLoading;
 }
+
+@property (nonatomic, strong)NSMutableArray* fullDataSet;
+@property (nonatomic, strong)NSMutableArray* fullFilteredDataSet;
+@property (nonatomic, strong)ImageStore* imageStore;
 
 + (id)singleton;
 - (void)clearFilteredDataSets;

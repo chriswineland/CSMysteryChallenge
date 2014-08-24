@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleLoading:) name:loadingIndicator object:[AppContext singleton]];
+
+    [self setUpApContextListeners];
     [[AppContext singleton]fetchAppData];
     [self setScreenDementions];
     
@@ -30,7 +30,7 @@
     [contentTableView setBackgroundColor:[UIColor clearColor]];
     [contentTableView setBackgroundView:nil];
     [contentTableView setBounces:YES];
-    [contentTableView setRowHeight:88.0f];
+    [contentTableView setRowHeight:150.0f];
     [contentTableView setDelegate:self];
     [contentTableView setDataSource:self];
     [contentTableView registerNib:[UINib nibWithNibName:@"TumblrPostCell"
@@ -51,18 +51,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return [[[AppContext singleton] fullDataSet]count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *MyIdentifier = @"TblerCellType";
     TumblrPostCell* cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    [[cell cellItemMessageLabel]setText:@"Test"];
-    
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
-    
+    [cell setCellValuesWithTumblrPost:[[[AppContext singleton] fullDataSet] objectAtIndex:indexPath.row]];
+
     return cell;
 }
 
@@ -80,6 +77,22 @@
     screenWidth = screenRect.size.width;
 }
 
+
+- (void)showLoading{
+    
+}
+
+- (void)hideLoading{
+    
+}
+
+#pragma mark - AppContext Event Listeners
+
+- (void)setUpApContextListeners{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleLoading:) name:loadingIndicator object:[AppContext singleton]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchCompleted) name:fetchCompletedSuccesfuly object:[AppContext singleton]];
+}
+
 - (void)toggleLoading:(NSNotification*)notification{
     if([(NSNumber*)[[notification userInfo]objectForKey:loadingIndicator] boolValue]){
         [self showLoading];
@@ -88,12 +101,8 @@
     }
 }
 
-- (void)showLoading{
-    
-}
-
-- (void)hideLoading{
-    
+- (void)fetchCompleted{
+    [contentTableView reloadData];
 }
 
 @end

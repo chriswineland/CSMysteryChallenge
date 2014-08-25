@@ -30,5 +30,6 @@ static NSString* indexPathKey = @"indexPathKey";
 + (id)singleton;
 - (void)clearDataSet;
 - (void)fetchAppData;
+- (void)purgeImageStore;
 
 @end

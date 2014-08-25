@@ -9,6 +9,7 @@
 #import "AppContext.h"
 #import "TMAPIClient.h"
 #import "NSString+HTML.h"
+#import "TumblrPostCell.h"
 
 @implementation AppContext
 
@@ -55,6 +56,7 @@
 
 
 - (void)fetchAppData{
+    //purge existing data before refetching
     if([fullDataSet count] > 0){
         [self clearDataSet];
     }
@@ -65,6 +67,10 @@
             [self fetchDidSucceedWithResult:result];
         }
 	}];
+}
+
+- (void)purgeImageStore{
+    [imageStore purgeAllEntries];
 }
 
 #pragma mark - parse tumbler post
@@ -81,6 +87,7 @@
 }
 
 - (NSString*)parseCaption:(NSDictionary*)dict{
+    //remove html and markup from the string in the domain layer so 
     return [[[dict objectForKey:@"caption"] stringByStrippingHTML] stringByDecodingMarkup];
 }
 
@@ -96,6 +103,7 @@
 }
 
 - (NSString*)parseHashTags:(NSDictionary*)dict{
+    //this function used the # as a delimiter between the actual "#s"
     NSString* formattedHashTags = @"";
     for(NSString* tag in [dict objectForKey:@"tags"]){
         formattedHashTags = [formattedHashTags stringByAppendingString:@"#"];
@@ -122,13 +130,10 @@
         //bail out, no actual options to choose from
         return bestFitImage;
     }
-    //70x105 is the display size
-    int height = 70;
-    int width = 105;
     for(NSDictionary* image in options){
         //this takes advantage and assumes that the images are passed to me largest to smallest, 
         //if this assumption is incorrec this will need to be refactored
-        if([[image objectForKey:@"height"]integerValue] > height && [[image objectForKey:@"width"] integerValue] > width){
+        if([[image objectForKey:@"height"]integerValue] > tumblrPostImageHeight && [[image objectForKey:@"width"] integerValue] > tumblrPostImageWidth){
             bestFitImage = [image objectForKey:@"url"];
         }
     }

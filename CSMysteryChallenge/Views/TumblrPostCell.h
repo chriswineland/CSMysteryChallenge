@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "TumblrPost.h"
 
+const CGFloat tumblrPostImageWidth = 105;
+const CGFloat tumblrPostImageHeight = 70;
+
 @interface TumblrPostCell : UITableViewCell{
     TumblrPost* displayedTumblrPost;
     int curDisplayedImageIndex;
@@ -22,5 +25,4 @@
 -(void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath*)indexPath;
 -(void)laodNextImageForPostAtIndexPath:(NSIndexPath*)indexPath;
 -(void)setCellItemImage:(UIImage*)image;
-
 @end

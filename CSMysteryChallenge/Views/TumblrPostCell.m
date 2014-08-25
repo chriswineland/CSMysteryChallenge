@@ -43,6 +43,9 @@
     [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[displayedTumblrPost imageURLs] objectAtIndex:0] atIndexPath:indexPath]];
 }
 
+//this function takes advantage of the fact i delineated the hashtags by "#" earlyer
+//another option would have to just put them into an aray untill this point but I found myself
+//woirried about length more then anything so a contatinated string worked
 - (NSString*)truncatedHashtagsFromFormattedHashtags:(NSString*)hashTags{
     int acceptableHashTagLength = 85;
     if([hashTags length] < acceptableHashTagLength){
@@ -88,5 +91,6 @@
 - (void)setImageToDisplayImageIndexForIndexPath:(NSIndexPath*)indexPath{
     [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[displayedTumblrPost imageURLs] objectAtIndex:curDisplayedImageIndex] atIndexPath:indexPath]];
 }
+
 
 @end

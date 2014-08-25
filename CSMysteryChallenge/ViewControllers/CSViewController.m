@@ -9,8 +9,6 @@
 #import "CSViewController.h"
 #import "AppContext.h"
 
-#define REFRESHTAG 1234
-
 @interface CSViewController ()
 
 @end
@@ -40,7 +38,6 @@
          forCellReuseIdentifier:@"TblerCellType"];
     
     refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl setTag:REFRESHTAG];
     [refreshControl setTintColor:[UIColor darkGrayColor]];
     [refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
     [contentTableView addSubview:refreshControl];
@@ -51,6 +48,7 @@
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+    [[AppContext singleton]purgeImageStore];
 }
 
 #pragma mark - UITableViewDataSource Methods

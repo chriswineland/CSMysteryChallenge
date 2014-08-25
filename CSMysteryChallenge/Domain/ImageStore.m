@@ -35,8 +35,13 @@
                 [delegate imageWasFetched:image forIndexPath:indexPath];
             });
         });
+        //this is the placeholder image while we fetch the real image async
         return [UIImage imageNamed:@"add_image_filled-128.png"];
     }
+}
+
+- (void)purgeAllEntries{
+    [cachedImages removeAllObjects];
 }
 
 @end

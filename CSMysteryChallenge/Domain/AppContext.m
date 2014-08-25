@@ -38,6 +38,12 @@
 
 - (void)fetchDidFailWithError:(NSError*)error{
     //show an error and let the user refetch if they like
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fetch Failed" 
+                                                    message:@"Failure to fetch data from Tumblr API" 
+                                                   delegate:self 
+                                          cancelButtonTitle:@"Refetch" 
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)fetchDidSucceedWithResult:(id)result{
@@ -149,6 +155,15 @@
 
 - (void)imageWasFetched:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath{
     [[NSNotificationCenter defaultCenter] postNotificationName:asyncImageReturned object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image, imageKey, indexPath, indexPathKey, nil]];
+}
+
+#pragma mark - alertView Delegate methods
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 0) {
+        [[AppContext singleton]fetchAppData];
+    }
 }
 
 @end

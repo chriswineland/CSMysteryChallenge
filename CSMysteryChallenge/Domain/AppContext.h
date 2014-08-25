@@ -18,7 +18,7 @@ static NSString* asyncImageReturned = @"asyncImageReturnedName";
 static NSString* imageKey = @"imageKey";
 static NSString* indexPathKey = @"indexPathKey";
 
-@interface AppContext : NSObject<ImageStoreDelegate>{
+@interface AppContext : NSObject<ImageStoreDelegate, UIAlertViewDelegate>{
     ImageStore* imageStore;
     NSMutableArray* fullDataSet;
 }

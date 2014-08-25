@@ -18,8 +18,8 @@
 @property (nonatomic, weak)id <ImageStoreDelegate> delegate;
 
 - (UIImage*)getImageFromURLString:(NSString*)urlString atIndexPath:(NSIndexPath*)indexPath;
--(void)purgeAllEntries;
-}
+- (void)purgeAllEntries;
+
 @end
 
 @protocol ImageStoreDelegate <NSObject>

@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "ImageStore.h"
-#import "TumblrPost.h"
 
 //notification stings
 static NSString* loadingIndicator = @"loadingNotificationName";

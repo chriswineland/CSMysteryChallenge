@@ -10,6 +10,7 @@
 #import "TMAPIClient.h"
 #import "NSString+HTML.h"
 #import "TumblrPostCell.h"
+#import "TumblrPost.h"
 
 @implementation AppContext
 
@@ -126,6 +127,9 @@
 
 - (NSString*)getBestFitImageFromOptions:(NSArray*)options{
     NSString* bestFitImage = @"";
+    //dementions of the image displayed
+    const CGFloat tumblrPostImageWidth = 105;
+    const CGFloat tumblrPostImageHeight = 70;
     if([options count] == 0){
         //bail out, no actual options to choose from
         return bestFitImage;

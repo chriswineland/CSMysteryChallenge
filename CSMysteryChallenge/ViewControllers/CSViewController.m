@@ -8,6 +8,7 @@
 
 #import "CSViewController.h"
 #import "AppContext.h"
+#import "TumblrPostCell.h"
 
 @interface CSViewController ()
 
@@ -48,7 +49,7 @@
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
-    [[AppContext singleton]purgeImageStore];
+    [[AppContext singleton]purgeAllEntries];
 }
 
 #pragma mark - UITableViewDataSource Methods

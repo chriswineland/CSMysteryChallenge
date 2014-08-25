@@ -37,21 +37,10 @@
 
 - (void)setCellValuesWithTumblrPost:(TumblrPost*)post atIndexPath:(NSIndexPath *)indexPath{
     displayedTumblrPost = post;
-    [self setCaptionText:[displayedTumblrPost caption]];
+    [[self cellItemMessageLabel]setText:[displayedTumblrPost caption]];
     [[self cellItemHashTagLabel] setText:[self truncatedHashtagsFromFormattedHashtags:[displayedTumblrPost formattedHashTags]]];
     [[self cellItemDateLabel] setText:[displayedTumblrPost date]];
     [[self cellItemImageView]setImage:[[[AppContext singleton] imageStore] getImageFromURLString:[[displayedTumblrPost imageURLs] objectAtIndex:0] atIndexPath:indexPath]];
-}
-
-- (void)setCaptionText:(NSString*)htmlString{
-    NSError *err = nil;
-    [[self cellItemMessageLabel] setAttributedText:[[NSAttributedString alloc]initWithData:[htmlString dataUsingEncoding:NSUTF8StringEncoding]
-                                                                                   options: @{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType } 
-                                                                        documentAttributes: nil 
-                                                                                     error: &err]];
-    if(err){
-       [[self cellItemMessageLabel] setText:@"Error Reading HTML Formated Text"];
-    }
 }
 
 - (NSString*)truncatedHashtagsFromFormattedHashtags:(NSString*)hashTags{
@@ -83,10 +72,12 @@
 
 -(void)laodNextImageForPostAtIndexPath:(NSIndexPath*)indexPath{
     [self moveCounterToNextImage];
+    //once we have moved the pointer go ahead an notify any one listening that a new image is ready for consumption 
     [self setImageToDisplayImageIndexForIndexPath:indexPath];
 }
 
 - (void)moveCounterToNextImage{
+    //this creates a loop of avalible images
     if(curDisplayedImageIndex >= [[displayedTumblrPost imageURLs]count]-1){
         curDisplayedImageIndex = 0;
     } else {

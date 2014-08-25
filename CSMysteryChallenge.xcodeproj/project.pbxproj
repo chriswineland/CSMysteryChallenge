@@ -14,6 +14,7 @@
 		161B785519A97849008835D5 /* AppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B785419A97849008835D5 /* AppContext.m */; };
 		161B785819A9DB74008835D5 /* add_image_filled-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 161B785719A9DB74008835D5 /* add_image_filled-128.png */; };
 		161B786019AA6EDB008835D5 /* AppContextTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B785F19AA6EDB008835D5 /* AppContextTestClass.m */; };
+		161B786419AAC12E008835D5 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B786319AAC12E008835D5 /* NSString+HTML.m */; };
 		A838F355187F070A002498E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F354187F070A002498E5 /* Foundation.framework */; };
 		A838F357187F070A002498E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F356187F070A002498E5 /* CoreGraphics.framework */; };
 		A838F359187F070A002498E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A838F358187F070A002498E5 /* UIKit.framework */; };
@@ -52,6 +53,8 @@
 		161B785419A97849008835D5 /* AppContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppContext.m; path = Domain/AppContext.m; sourceTree = "<group>"; };
 		161B785719A9DB74008835D5 /* add_image_filled-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_image_filled-128.png"; sourceTree = "<group>"; };
 		161B785F19AA6EDB008835D5 /* AppContextTestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContextTestClass.m; sourceTree = "<group>"; };
+		161B786219AAC12E008835D5 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "Utility/NSString+HTML.h"; sourceTree = "<group>"; };
+		161B786319AAC12E008835D5 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "Utility/NSString+HTML.m"; sourceTree = "<group>"; };
 		65A2EBEF67DE4A779F5BC24D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8C44B7ACD14D17B171EF43 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A838F351187F070A002498E5 /* CSMysteryChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSMysteryChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +118,15 @@
 				161B785719A9DB74008835D5 /* add_image_filled-128.png */,
 			);
 			name = Assets;
+			sourceTree = "<group>";
+		};
+		161B786119AAC0DD008835D5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				161B786219AAC12E008835D5 /* NSString+HTML.h */,
+				161B786319AAC12E008835D5 /* NSString+HTML.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		16A6910A19A925BE0063F51E /* Domain */ = {
@@ -184,6 +196,7 @@
 		A838F35A187F070A002498E5 /* CSMysteryChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				161B786119AAC0DD008835D5 /* Utility */,
 				161B785619A9DB4C008835D5 /* Assets */,
 				16A6910A19A925BE0063F51E /* Domain */,
 				16A6910C19A925D40063F51E /* ViewControllers */,
@@ -361,6 +374,7 @@
 			files = (
 				161B785519A97849008835D5 /* AppContext.m in Sources */,
 				A838F365187F070A002498E5 /* CSAppDelegate.m in Sources */,
+				161B786419AAC12E008835D5 /* NSString+HTML.m in Sources */,
 				161B784F19A9463F008835D5 /* TumblrPost.m in Sources */,
 				A838F361187F070A002498E5 /* main.m in Sources */,
 				A838F36B187F070A002498E5 /* CSViewController.m in Sources */,

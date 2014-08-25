@@ -8,6 +8,7 @@
 
 #import "AppContext.h"
 #import "TMAPIClient.h"
+#import "NSString+HTML.h"
 
 @implementation AppContext
 
@@ -80,7 +81,7 @@
 }
 
 - (NSString*)parseCaption:(NSDictionary*)dict{
-    return [dict objectForKey:@"caption"];
+    return [[[dict objectForKey:@"caption"] stringByStrippingHTML] stringByDecodingMarkup];
 }
 
 - (NSString*)parseDate:(NSDictionary*)dict{
